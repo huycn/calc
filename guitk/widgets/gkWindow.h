@@ -23,20 +23,13 @@ public:
 
 	typedef std::shared_ptr<Window> Pointer;
 
-	/*
-	enum class Anchor {
-		Left		= 0x01,
-		Top			= 0x02,
-		LeftTop		= Left | Top,
-		Right		= 0x04,
-		Bottom		= 0x08,
-		RightBottom	= Right | Bottom,
-		ExpandLeft	= LeftTop | Bottom,
-		ExpandRight	= Top | RightBottom,
-		ExpandTop	= LeftTop | Right,
-		ExpandBottom= Left | RightBottom,
-		All			= 0x0F,
-	};*/
+	enum Anchor {
+		AnchorLeft		= 0x01,
+		AnchorTop		= 0x02,
+		AnchorRight		= 0x04,
+		AnchorBottom	= 0x08,
+		AnchorAllAround = 0x0F,
+	};
 
 	virtual ~Window();
 
@@ -81,7 +74,9 @@ public:
 	}*/
 
 	virtual void setMinSize(int w, int h);
-	
+	int minWidth() const						{ return mMinWidth; }
+	int minHeight() const						{ return mMinHeight; }
+
 	//Point screenToClient(const Point &p) const {
 	//	POINT result = screenToClient(p.X, p.Y);
 	//	return Point(result.x, result.y);

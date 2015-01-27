@@ -28,8 +28,18 @@ set (GUITK_CORE_FILES
 )
 
 set (GUITK_WIDGETS_FILES
+	widgets/gkComboBox.h
+	widgets/gkComboBox.cpp
 	widgets/gkControl.h
 	widgets/gkControl.cpp
+	widgets/gkDialog.h
+	widgets/gkDialog.cpp
+	widgets/gkFrameWindow.h
+	widgets/gkFrameWindow.cpp
+	widgets/gkProgressBar.h
+	widgets/gkProgressBar.cpp
+	widgets/gkSplitter.h
+	widgets/gkSplitter.cpp
 	widgets/gkStatusBar.h
 	widgets/gkStatusBar.cpp
 	widgets/gkTextEdit.h
