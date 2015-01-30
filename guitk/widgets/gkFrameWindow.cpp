@@ -16,9 +16,9 @@ FrameWindow::FrameWindow(HWND parent, const Rect &rect)
 {
 	HINSTANCE hInstance = GetHINSTANCE(parent);
 	HWND hwnd = CreateWindowEx(0, GetWindowClass(hInstance).lpszClassName, 0,
-								WS_CHILDWINDOW | WS_VISIBLE,
-								rect.left, rect.top, rect.width(), rect.height(),
-								parent, NULL, hInstance, NULL);
+		WS_CHILD | WS_VISIBLE,
+		rect.left, rect.top, rect.width(), rect.height(),
+		parent, NULL, hInstance, NULL);
 	init(hwnd);
 }
 

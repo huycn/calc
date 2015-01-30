@@ -47,7 +47,7 @@ ComboBox::ComboBox(HWND parent, const Rect &bounds, const std::vector<String> &e
 void
 ComboBox::init(HWND parent, const Rect &bounds, const std::vector<String> &entries, bool editable)
 {
-	HWND hComboBox = CreateWindow(_T("COMBOBOX"), NULL, WS_VISIBLE | WS_CHILDWINDOW | CBS_AUTOHSCROLL | (editable ? CBS_DROPDOWN : CBS_DROPDOWNLIST),
+	HWND hComboBox = CreateWindow(_T("COMBOBOX"), NULL, WS_VISIBLE | WS_CHILD | CBS_AUTOHSCROLL | (editable ? CBS_DROPDOWN : CBS_DROPDOWNLIST),
 		bounds.left, bounds.top, bounds.width(), bounds.height(),
 		parent, NULL, GetHINSTANCE(parent), 0);
 

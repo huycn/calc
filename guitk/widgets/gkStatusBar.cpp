@@ -18,7 +18,7 @@ void
 StatusBar::init(HWND parent)
 {
 	HWND hStatus = CreateWindowEx(0, STATUSCLASSNAME, NULL,
-		WS_VISIBLE | WS_CHILDWINDOW,
+		WS_VISIBLE | WS_CHILD,
 		0, 0, 0, 0,
 		parent, NULL, GetHINSTANCE(parent), 0);
 	

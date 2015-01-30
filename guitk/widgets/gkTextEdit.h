@@ -7,7 +7,7 @@ namespace guitk {
 class TextEdit : public Control
 {
 public:
-	TextEdit(HWND parent, const Rect &frame, const String &text = String(), bool isNumber = false);
+	TextEdit(HWND parent, const Rect &frame, const String &text = String(), bool multiline = false, bool isNumber = false);
 	
 	virtual ~TextEdit();
 

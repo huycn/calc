@@ -138,7 +138,8 @@ public:
 	//	updateTooltip(-1, text);
 	//}
 
-	virtual LRESULT processMenuCommand(HMENU hMenu, int command, bool isShortcut);
+	HWND hWnd() const { return mHandle; }
+
 	
 	virtual void onMouseWheel(WPARAM wParam, LPARAM lParam);
 
@@ -155,10 +156,9 @@ protected:
 
 	virtual LRESULT wndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
 	virtual LRESULT processOwnerMsg(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
+	virtual LRESULT processMenuCommand(HMENU hMenu, int command, bool isShortcut);
 
 	static LRESULT CALLBACK WindowsProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
-
-	HWND hWnd() const { return mHandle; }
 
 private:
 	HWND mHandle;

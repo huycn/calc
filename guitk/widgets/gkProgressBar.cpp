@@ -7,7 +7,7 @@ namespace guitk {
 
 ProgressBar::ProgressBar(HWND parent, const Rect &bounds, const String &label)
 {
-	HWND hProgBar = CreateWindowEx(0, PROGRESS_CLASS, NULL, WS_VISIBLE | WS_CHILDWINDOW,
+	HWND hProgBar = CreateWindowEx(0, PROGRESS_CLASS, NULL, WS_VISIBLE | WS_CHILD,
 		bounds.left, bounds.top, bounds.width(), bounds.height(),
 		parent, NULL, GetHINSTANCE(parent), NULL);
 

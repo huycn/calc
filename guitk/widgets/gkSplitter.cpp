@@ -63,9 +63,9 @@ HorizontalSplitter::HorizontalSplitter(HWND parent, int width, Window::Pointer p
 	rect.bottom = rect.top + width;
 	HINSTANCE hInstance = GetHINSTANCE(parent);
 	HWND hwnd = CreateWindowEx(0, GetWindowClass(hInstance).lpszClassName, 0,
-								WS_CHILDWINDOW | WS_VISIBLE,
-								rect.left, rect.top, rect.width(), rect.height(),
-								parent, NULL, hInstance, NULL);
+		WS_CHILD | WS_VISIBLE,
+		rect.left, rect.top, rect.width(), rect.height(),
+		parent, NULL, hInstance, NULL);
 	init(hwnd);
 }
 
@@ -156,9 +156,9 @@ VerticalSplitter::VerticalSplitter(HWND parent, int width, Window::Pointer prevW
 	rect.right = rect.left + width;
 	HINSTANCE hInstance = (HINSTANCE)GetWindowLongPtr(parent, GWLP_HINSTANCE);
 	HWND hwnd = CreateWindowEx(0, GetWindowClass(hInstance).lpszClassName, 0,
-								WS_CHILDWINDOW | WS_VISIBLE,
-								rect.left, rect.top, rect.width(), rect.height(),
-								parent, NULL, hInstance, NULL);
+		WS_CHILD | WS_VISIBLE,
+		rect.left, rect.top, rect.width(), rect.height(),
+		parent, NULL, hInstance, NULL);
 	init(hwnd);
 }
 

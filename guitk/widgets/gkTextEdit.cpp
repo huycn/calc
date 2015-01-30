@@ -5,10 +5,10 @@
 
 namespace guitk {
 
-TextEdit::TextEdit(HWND parent, const Rect &frame, const String &text, bool isNumber)
+TextEdit::TextEdit(HWND parent, const Rect &frame, const String &text, bool multiline, bool isNumber)
 {
 	HWND hEdit = CreateWindow(_T("EDIT"), text.c_str(),
-		WS_VISIBLE | WS_CHILDWINDOW | ES_AUTOHSCROLL | (isNumber ? ES_NUMBER : 0),
+		WS_VISIBLE | WS_CHILD | (multiline ? (ES_MULTILINE | ES_AUTOVSCROLL) : ES_AUTOHSCROLL ) | (isNumber ? ES_NUMBER : 0),
 		frame.left, frame.top, frame.width(), frame.height(),
 		parent, NULL, GetHINSTANCE(parent), 0);
 	

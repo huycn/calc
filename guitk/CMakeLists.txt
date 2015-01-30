@@ -1,8 +1,7 @@
 set (GUITK_INCLUDE
 	"${CMAKE_CURRENT_SOURCE_DIR}/core"
 	"${CMAKE_CURRENT_SOURCE_DIR}/widgets"
-	"${CMAKE_CURRENT_SOURCE_DIR}/res"
-CACHE INTERNAL "")
+	CACHE INTERNAL "")
 
 if (MSVC)
 	add_definitions (
@@ -36,8 +35,11 @@ set (GUITK_WIDGETS_FILES
 	widgets/gkDialog.cpp
 	widgets/gkFrameWindow.h
 	widgets/gkFrameWindow.cpp
+	widgets/gkMainWindow.h
+	widgets/gkMainWindow.cpp
 	widgets/gkProgressBar.h
 	widgets/gkProgressBar.cpp
+	widgets/gkResource.h
 	widgets/gkSplitter.h
 	widgets/gkSplitter.cpp
 	widgets/gkStatusBar.h
@@ -49,17 +51,10 @@ set (GUITK_WIDGETS_FILES
 	widgets/gkWindowUtil.h
 )
 
-set (GUITK_RESOURCE_FILES
-	res/gkResource.h
-	res/gkResource.rc
-)
-
 source_group ("Source Files\\core" FILES ${GUITK_CORE_FILES})
 source_group ("Source Files\\widgets" FILES ${GUITK_WIDGETS_FILES})
-source_group ("Resource Files" FILES ${GUITK_RESOURCE_FILES})
 
 add_library (guitk
 	${GUITK_CORE_FILES}
 	${GUITK_WIDGETS_FILES}
-	${GUITK_RESOURCE_FILES}
 )
