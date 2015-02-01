@@ -20,6 +20,8 @@ include_directories (
 
 set (GUITK_CORE_FILES
 	core/gkException.h
+	core/gkLogger.h
+	core/gkLogger.cpp
 	core/gkPoint.h
 	core/gkRect.h
 	core/gkString.h

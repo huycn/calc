@@ -8,10 +8,11 @@ namespace guitk {
 
 MainWindow::MainWindow(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine)
 {
-	HWND hwnd = CreateWindowEx(WS_EX_ACCEPTFILES, GetWindowClass(hInstance).lpszClassName, MAKEINTRESOURCE(IDS_APP_NAME),
+	HMENU hMenu = LoadMenu(hInstance, MAKEINTRESOURCE(IDR_MAIN_MENU));
+	HWND hwnd = CreateWindowEx(WS_EX_ACCEPTFILES, GetWindowClass(hInstance).lpszClassName, _T("ProCalc"),
 		WS_OVERLAPPEDWINDOW,
 		CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, NULL,
-		LoadMenu(hInstance, MAKEINTRESOURCE(IDR_MAIN_MENU)),
+		hMenu,
 		hInstance, 0);
 	if (hwnd == NULL) throw FatalError(_T("Can't create main window"));
 	init(hwnd);
@@ -34,8 +35,8 @@ MainWindow::MainWindow(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmd
 	//	mStatusBarHeight = 0;
 	//}
 
-	Rect cRect = clientRect();
-	cRect.bottom -= mStatusBar->height();
+	//Rect cRect = clientRect();
+	//cRect.bottom -= mStatusBar->height();
 
 	//mImage.reset(new SelectionablePictureBox(hwnd, cRect));
 	//mImage->addFlags(Window::fAnchorAll);
@@ -52,8 +53,6 @@ MainWindow::MainWindow(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmd
 	//	loadFile(szArglist[1]);
 	//}
 	//LocalFree(szArglist);
-
-	onStatusMsg(_T("Ready"));
 }
 
 MainWindow::~MainWindow()
@@ -77,6 +76,7 @@ MainWindow::show(int nCmdShow)
 {
 	ShowWindow(hWnd(), nCmdShow);
 	UpdateWindow(hWnd());
+	onStatusMsg(_T("Ready"));
 }
 
 void

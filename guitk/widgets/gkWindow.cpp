@@ -4,6 +4,7 @@
 #include "gkPoint.h"
 #include "gkResource.h"
 #include "gkException.h"
+#include "gkLogger.h"
 
 #include <ciso646>
 #include <algorithm>
@@ -250,6 +251,7 @@ Window::clientToScreen(const Point &pos) const
 void
 Window::resize(int width, int height)
 {
+	LOGE("Resize %dx%d", width, height);
 	width = std::max(width, mMinWidth);
 	height = std::max(height, mMinHeight);
 	SetWindowPos(mHandle, 0, 0, 0, width, height,
